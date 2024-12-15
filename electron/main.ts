@@ -1,7 +1,7 @@
 import { app, BrowserWindow } from 'electron'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
-
+import { autoUpdater } from 'electron-updater'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -41,9 +41,34 @@ function createWindow() {
   if (VITE_DEV_SERVER_URL) {
     win.loadURL(VITE_DEV_SERVER_URL)
   } else {
-    // win.loadFile('dist/index.html')
     win.loadFile(path.join(RENDERER_DIST, 'index.html'))
   }
+
+  // Check for updates when the app is ready
+  autoUpdater.checkForUpdatesAndNotify()
+
+  // Listen for update events
+  autoUpdater.on('checking-for-update', () => {
+    console.log('Checking for updates...');
+  });
+
+  autoUpdater.on('update-available', (info) => {
+    console.log('Update available:', info);
+  });
+
+  autoUpdater.on('update-not-available', (info) => {
+    console.log('Update not available:', info);
+  });
+
+  autoUpdater.on('error', (err) => {
+    console.error('Error in auto-updater:', err);
+  });
+
+  autoUpdater.on('update-downloaded', (info) => {
+    console.log('Update downloaded:', info);
+    // Automatically install the update after it's downloaded
+    autoUpdater.quitAndInstall();
+  });
 }
 
 // Quit when all windows are closed, except on macOS. There, it's common

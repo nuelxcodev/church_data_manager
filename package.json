@@ -19,6 +19,7 @@
     "bcryptjs-react": "^2.4.6",
     "chart.js": "^4.4.6",
     "electron-store": "^10.0.0",
+    "electron-updater": "^6.3.9",
     "jsonwebtoken": "^9.0.2",
     "react": "^18.2.0",
     "react-apexcharts": "^1.6.0",
@@ -50,5 +51,14 @@
     "vite-plugin-electron": "^0.28.6",
     "vite-plugin-electron-renderer": "^0.14.5"
   },
-  "main": "dist-electron/main.js"
+  "main": "dist-electron/main.js",
+  "build": {
+  "productName": "kingdom greatness int'l church",
+  "publish": {
+    "provider": "github",
+    "owner": "nuelxcodev",
+    "repo": "https://github.com/nuelxcodev/church_data_manager.git"
+  }
+}
+
 }
