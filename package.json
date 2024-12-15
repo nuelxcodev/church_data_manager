@@ -53,12 +53,34 @@
   },
   "main": "dist-electron/main.js",
   "build": {
-  "productName": "kingdom greatness int'l church",
-  "publish": {
-    "provider": "github",
-    "owner": "nuelxcodev",
-    "repo": "https://github.com/nuelxcodev/church_data_manager.git"
+    "appId": "com.kgic",
+    "productName": "Kingdom Greatness Int'l Church",
+    "copyright": "Copyright © 2024 Chukwuemeka",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "dist-electron/**/*",
+      "dist/**/*"
+    ],
+    "win": {
+      "target": ["nsis"],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Kingdom Greatness Int'l Church"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "nuelxcodev",
+      "repo": "church_data_manager",
+      "releaseType": "draft"
+    }
   }
-}
-
 }
