@@ -1,7 +1,7 @@
 {
   "name": "myelectkgic",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.1",
   "type": "module",
   "author": "chukwuemeka",
   "description": "management app",
@@ -64,7 +64,9 @@
       "dist/**/*"
     ],
     "win": {
-      "target": ["nsis"],
+      "target": [
+        "nsis"
+      ],
       "icon": "assets/icon.ico"
     },
     "nsis": {
@@ -79,8 +81,8 @@
     "publish": {
       "provider": "github",
       "owner": "nuelxcodev",
-      "repo": "church_data_manager",
-      "releaseType": "draft"
+      "repo": "https://github.com/nuelxcodev/church_data_manager.git",
+      "releaseType": "release"
     }
   }
 }
