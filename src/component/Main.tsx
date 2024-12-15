@@ -83,6 +83,8 @@ export default function Home() {
 
           {/* Dashboard Content */}
           <main className="flex-1 bg-neutral-200 overflow-y-scroll scrollbar-hide">
+
+            <h1>this id</h1>
             <Routes>
               <Route
                 path="/"
