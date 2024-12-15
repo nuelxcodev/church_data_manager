@@ -1,12 +1,10 @@
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";
 import { useState } from "react";
-import {
-  FaPowerOff,
-} from "react-icons/fa";
+import { FaPowerOff } from "react-icons/fa";
 import MonthlyReport from "./Report";
 import Analysis from "./Analysis";
 import MemberShipData from "./MemberShipData";
@@ -17,10 +15,8 @@ import Navbar from "./Navbar";
 import { useAuth } from "../../utils/userscontextthook";
 import Homepage from "./Home";
 
-
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
@@ -34,9 +30,7 @@ export default function Home() {
           <div className="p-4 text-center font-bold text-xl border-b border-gray-700">
             KGIC Dashboard
           </div>
-          <Navbar
-
-          />
+          <Navbar />
           <div className="absolute bottom-0 right-0">
             <button
               className="flex items-center gap-3 m-3 p-2 bg-yellow-300 text-black"
@@ -75,43 +69,19 @@ export default function Home() {
           </header>
           {isMenuOpen && (
             <nav className="lg:hidden bg-gray-800 text-white space-y-2 px-4 py-3">
-              <Navbar
-
-              />
+              <Navbar />
             </nav>
           )}
 
           {/* Dashboard Content */}
           <main className="flex-1 bg-neutral-200 overflow-y-scroll scrollbar-hide">
-
-            <h1>this id</h1>
             <Routes>
-              <Route
-                path="/"
-                element={
-                  <Homepage />
-                }
-              />
-              <Route
-                path="/reports/service"
-                element={<ServicesReport />}
-              />
-              <Route
-                path="/reports/monthly"
-                element={<MonthlyReport />}
-              />
-              <Route
-                path="/newsoul"
-                element={<NewConvert />}
-              />
-              <Route
-                path="/finances"
-                element={<Analysis />}
-              />
-              <Route
-                path="/membership"
-                element={<MemberShipData />}
-              />
+              <Route path="/" element={<Homepage />} />
+              <Route path="/reports/service" element={<ServicesReport />} />
+              <Route path="/reports/monthly" element={<MonthlyReport />} />
+              <Route path="/newsoul" element={<NewConvert />} />
+              <Route path="/finances" element={<Analysis />} />
+              <Route path="/membership" element={<MemberShipData />} />
             </Routes>
           </main>
         </div>
